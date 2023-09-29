@@ -5,3 +5,5 @@
 /.vs
 /Main/bin/Debug/net7.0
 /Main/obj
+/Main/bin/Release/net7.0
+/Main/Properties/PublishProfiles
