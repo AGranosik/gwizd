@@ -11,3 +11,5 @@
 /Main.Infrastructure/obj
 /Main.Services/bin/Debug/net7.0
 /Main.Services/obj
+/Main.Infrastructure/bin/Release/net7.0
+/Main.Services/bin/Release/net7.0
