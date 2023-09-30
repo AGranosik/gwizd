@@ -5,8 +5,21 @@
         public Guid id { get; set; } = Guid.NewGuid();
         public decimal X { get; set; }
         public decimal Y { get; set; }
-        public string SpieciesCategory { get; set; }
-        public string ConcreteSpiecies { get; set; }
-        public string IncidentType { get; set; }
+        public class IncidentTypeAnalisisDto
+        {
+            public EIncidentLevel IncidentLevel { get; set; }
+            public string Type { get; set; }
+        }
+        public enum EIncidentLevel
+        {
+            Information,
+            Warning,
+            Danger
+        }
+
+        public enum EIncidentType
+        {
+            Dzik, Sarna, Kwiatek, Ptak, Widok, Pies, Kot, Wiewiorka
+        }
     }
 }
