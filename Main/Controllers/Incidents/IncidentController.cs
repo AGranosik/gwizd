@@ -19,7 +19,10 @@ namespace Main.Controllers.Incidents
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _service.GetAll());
+            var result = await _service.GetAll();
+            return Ok(result.Where(r => r.CreationDate >= DateTime.Now.AddHours(-2))
+                .OrderByDescending(r => r.CreationDate)
+                .ToList());
         }
 
         [HttpGet("byId")]

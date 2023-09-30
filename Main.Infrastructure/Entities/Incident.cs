@@ -8,6 +8,7 @@
         public string SpieciesCategory { get; set; }
         public List<string> ConcreteSpecies { get; set; }
         public IncidentTypeAnalisisDto IncidentType { get; set; }
+        public DateTime CreationDate { get; set; } = DateTime.Now;
     }
 
     public class IncidentTypeAnalisisDto
