@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Main.Services.Wikipedia.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Main.Services.Wikipedia.Interfaces
 {
     public interface IWikipediaService
     {
-        public Task<string> Search(string searchString);
+        public Task<WikiViewModel> Search(string searchString);
     }
 }
