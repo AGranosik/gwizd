@@ -20,7 +20,17 @@ namespace Main.Services.Incidents
 
         public async Task AddIncident(Incident incident, CancellationToken cancellationToken)
         {
-           await _incidentDbContext.AddIncident(incident);
+            await _incidentDbContext.AddIncident(incident);
+        }
+
+        public async Task<List<Incident>> GetAll()
+        {
+            return await _incidentDbContext.GetIncidents();
+        }
+
+        public async Task<Incident> GetById(Guid id)
+        {
+            return await _incidentDbContext.GetIncident(id);
         }
     }
 }
