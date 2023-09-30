@@ -47,8 +47,10 @@ namespace Main.Controllers.Incidents
                     ConcreteSpecies = request.ConcreteSpecies,
                     IncidentType = request.IncidentType,
                     SpieciesCategory = request.SpieciesCategory,
+                    Description = request.Description,
                     X = request.X,
-                    Y = request.Y
+                    Y = request.Y,
+                    CreationDate = request.CreationDate
                 };
 
                 await _service.AddIncident(incident, cancellationToken);

@@ -9,5 +9,7 @@ namespace Main.Controllers.Incidents.Requests
         public string SpieciesCategory { get; set; }
         public List<string> ConcreteSpecies { get; set; }
         public IncidentTypeAnalisisDto IncidentType { get; set; }
+        public string Description { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 }
