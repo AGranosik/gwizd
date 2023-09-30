@@ -7,3 +7,7 @@
 /Main/obj
 /Main/bin/Release/net7.0
 /Main/Properties/PublishProfiles
+/Main.Infrastructure/bin/Debug/net7.0
+/Main.Infrastructure/obj
+/Main.Services/bin/Debug/net7.0
+/Main.Services/obj
