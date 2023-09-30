@@ -1,8 +1,7 @@
-﻿namespace Main.Infrastructure.Entities
+﻿namespace Main.Controllers.Incidents.Requests
 {
-    public class Incident
+    public class AddIncidentRequest
     {
-        public Guid id { get; set; } = Guid.NewGuid();
         public decimal X { get; set; }
         public decimal Y { get; set; }
         public string SpieciesCategory { get; set; }

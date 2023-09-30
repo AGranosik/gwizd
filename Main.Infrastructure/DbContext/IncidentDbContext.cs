@@ -22,10 +22,10 @@ namespace Main.Infrastructure.DbContext
             return results.Select(c => c).ToList();
         }
 
-        public async Task<Incident> GetIncident(int id)
+        public async Task<Incident> GetIncident(Guid id)
         {
             var query = _containers.IncidentContainer.GetItemLinqQueryable<Incident>();
-            var iterator = query.Where(c => c.Id == id).ToFeedIterator();
+            var iterator = query.Where(c => c.id == id).ToFeedIterator();
             var results = await iterator.ReadNextAsync();
             return results.First();
         }

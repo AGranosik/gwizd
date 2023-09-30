@@ -29,7 +29,7 @@ namespace Main.Infrastructure
             var connectionString = configuration["ConnectionString"];
             var cosmosClient = new CosmosClient(connectionString, cosmosClientOptions);
             var database = cosmosClient.CreateDatabaseIfNotExistsAsync("IncidentCollection").Result;
-            var incidentContainer = database.Database.CreateContainerIfNotExistsAsync("Incident", "/Id").Result;
+            var incidentContainer = database.Database.CreateContainerIfNotExistsAsync("Incident", "/id").Result;
             services.AddSingleton(new Containers(incidentContainer.Container));
             services.AddScoped<IncidentDbContext>();
 
