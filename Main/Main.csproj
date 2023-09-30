@@ -4,13 +4,17 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>7b921724-2601-49a4-9b1b-d01c205626ec</UserSecretsId>
+    <UserSecretsId>a80a9659-3ae9-4b49-9e37-e837ab482502</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Main.Infrastructure\Main.Infrastructure.csproj" />
+    <ProjectReference Include="..\Main.Services\Main.Services.csproj" />
   </ItemGroup>
 
 </Project>

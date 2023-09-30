@@ -1,36 +1,15 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
+using Main;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins(builder.Configuration["AllowedHost"]);
-                          policy.AllowAnyHeader();
-                          policy.AllowAnyMethod();
-                      });
-});
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.Authority = $"{builder.Configuration["Authority"]}";
-        options.Audience = $"{builder.Configuration["Audience"]}";
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = ClaimTypes.NameIdentifier
-        };
-    });
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.RegisterLayersServices();
 
 var app = builder.Build();
 
@@ -43,6 +22,7 @@ app.UseCors(builder => builder
         .AllowAnyMethod()
         .SetIsOriginAllowed((host) => true)
         .AllowCredentials());
+
 
 app.UseHttpsRedirection();
 
