@@ -6,6 +6,7 @@ namespace Main.Controllers.Incidents.Requests
     {
         public decimal X { get; set; }
         public decimal Y { get; set; }
+        public string Image { get; set; }
         public string SpieciesCategory { get; set; }
         public List<string> ConcreteSpecies { get; set; }
         public IncidentTypeAnalisisDto IncidentType { get; set; }

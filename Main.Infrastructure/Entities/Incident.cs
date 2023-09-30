@@ -6,6 +6,7 @@
         public decimal X { get; set; }
         public decimal Y { get; set; }
         public string SpieciesCategory { get; set; }
+        public string Image { get; set; }
         public List<string> ConcreteSpecies { get; set; }
         public string Description { get; set; }
         public IncidentTypeAnalisisDto IncidentType { get; set; }
