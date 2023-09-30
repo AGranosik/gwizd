@@ -16,6 +16,18 @@ namespace Main.Controllers.Incidents
             _service = service;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _service.GetAll());
+        }
+
+        [HttpGet("byId")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            return Ok(await _service.GetById(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> AnalizePhotoForIncident([FromForm] IncidentCreationRequest request, CancellationToken cancellationToken)
         {
