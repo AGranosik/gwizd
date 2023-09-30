@@ -1,4 +1,6 @@
 ﻿using Main.Infrastructure.ComputerVisionAgents;
+using Main.Infrastructure.DbContext;
+using Main.Infrastructure.Entities;
 using Main.Services.Incidents.Interfaces;
 using Main.Services.Incidents.Models;
 
@@ -19,10 +21,17 @@ namespace Main.Services.Incidents
             "moose", "deer", "common pipistrelle", "bat", "boar", "crow", "raven", "snake", "serpent", "reptile",
             "eurasian red squirrel", "squirrel", "bear", "dandelion", "bramble", "poppy", "African daisy", "cabbage"
         };
+        private readonly IncidentDbContext _incidentDbContext;
 
-        public IncidentService(ICognitiveVisionAgent cognitiveVisionAgent)
+        public IncidentService(ICognitiveVisionAgent cognitiveVisionAgent, IncidentDbContext incidentDbContext)
         {
             _cognitiveAgent = cognitiveVisionAgent;
+            _incidentDbContext = incidentDbContext;
+        }
+
+        public async Task AddIncident(Incident incident, CancellationToken cancellationToken)
+        {
+           await _incidentDbContext.AddIncident(incident);
         }
         public async Task<KnownSpieciesDto> AnalizeIncidentAsync(Stream image, CancellationToken cancellationToken)
         {
