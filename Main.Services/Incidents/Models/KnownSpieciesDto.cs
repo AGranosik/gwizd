@@ -20,7 +20,7 @@
         }
         public string SpieciesCategory { get; init; }
         public List<string> ConcreteSpecies { get; init; }
-        public IncidentTypeAnlisisDto IncidentType { get; private set; }
+        public IncidentTypeAnalisisDto IncidentType { get; private set; }
 
         private void SetIncidentType()
         {
@@ -28,7 +28,7 @@
             var dangerType = _dangerSpecies.FirstOrDefault(ds => ConcreteSpecies.Contains(ds.ToLower()));
             if (dangerType != null)
             {
-                IncidentType = new IncidentTypeAnlisisDto
+                IncidentType = new IncidentTypeAnalisisDto
                 {
                     IncidentLevel = EIncidentLevel.Danger,
                     Type = dangerType
@@ -39,7 +39,7 @@
             var warningType = _warningSpecies.FirstOrDefault(ws => ConcreteSpecies.Contains(ws));
             if(warningType != null)
             {
-                IncidentType = new IncidentTypeAnlisisDto
+                IncidentType = new IncidentTypeAnalisisDto
                 {
                     IncidentLevel = EIncidentLevel.Warning,
                     Type = warningType
@@ -47,7 +47,7 @@
                 return;
             }
 
-            IncidentType = new IncidentTypeAnlisisDto
+            IncidentType = new IncidentTypeAnalisisDto
             {
                 Type = ConcreteSpecies.FirstOrDefault(),
                 IncidentLevel = EIncidentLevel.Information
@@ -56,7 +56,7 @@
 
     }
 
-    public class IncidentTypeAnlisisDto
+    public class IncidentTypeAnalisisDto
     {
         public EIncidentLevel IncidentLevel { get; set; }
         public string Type { get; set; }
