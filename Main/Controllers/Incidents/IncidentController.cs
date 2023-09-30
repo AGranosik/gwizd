@@ -8,8 +8,9 @@ namespace Main.Controllers.Incidents
     public class IncidentController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> CreateIncidentAsync(IncidentCreationRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateIncidentAsync([FromForm] IncidentCreationRequest request, CancellationToken cancellationToken)
         {
+            var ss = HttpContext.Request.Form.Files;
             return null;
         }
     }
