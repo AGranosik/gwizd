@@ -1,7 +1,9 @@
-﻿namespace Main.Infrastructure.ComputerVisionAgents
+﻿using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+
+namespace Main.Infrastructure.ComputerVisionAgents
 {
     public interface ICognitiveVisionAgent
     {
-        Task<List<string>> AnalyzeImageUrl(Stream iamgeStream);
+        Task<ImageAnalysis> AnalyzeImageUrl(Stream iamgeStream);
     }
 }

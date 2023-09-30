@@ -1,7 +1,9 @@
-﻿namespace Main.Services.Incidents.Interfaces
+﻿using Main.Services.Incidents.Models;
+
+namespace Main.Services.Incidents.Interfaces
 {
     public interface IIncidentService
     {
-        Task<List<string>> AnalizeIncidentAsync(Stream image, CancellationToken cancellationToken);
+        Task<KnownSpieciesDto> AnalizeIncidentAsync(Stream image, CancellationToken cancellationToken);
     }
 }
