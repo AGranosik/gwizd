@@ -39,15 +39,17 @@ namespace Main.Controllers.Incidents
         {
             try
             {
-                await _service.AddIncident(new Incident
+                var incident = new Incident
                 {
-                    ConcreteSpiecies = request.ConcreteSpiecies,
+                    ConcreteSpecies = request.ConcreteSpecies,
                     IncidentType = request.IncidentType,
                     SpieciesCategory = request.SpieciesCategory,
                     X = request.X,
                     Y = request.Y
-                }, cancellationToken);
-                return Ok();
+                };
+
+                await _service.AddIncident(incident, cancellationToken);
+                return Ok(incident.id);
             }
             catch(Exception)
             {

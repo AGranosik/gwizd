@@ -1,4 +1,6 @@
-﻿namespace Main.Services.Incidents.Models
+﻿using Main.Infrastructure.Entities;
+
+namespace Main.Services.Incidents.Models
 {
     public class KnownSpieciesDto {
 
@@ -56,20 +58,5 @@
 
     }
 
-    public class IncidentTypeAnalisisDto
-    {
-        public EIncidentLevel IncidentLevel { get; set; }
-        public string Type { get; set; }
-    }
-    public enum EIncidentLevel
-    {
-        Information,
-        Warning,
-        Danger
-    }
 
-    public enum EIncidentType
-    {
-        Dzik, Sarna, Kwiatek, Ptak, Widok, Pies, Kot, Wiewiorka
-    }
 }
