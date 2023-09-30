@@ -12,13 +12,15 @@ namespace Main.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet("GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -28,6 +30,12 @@ namespace Main.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("Testowy")]
+        public IActionResult GetTest()
+        {
+            return Ok(@$"{_configuration["Authority"]} {_configuration["Audience"]}");
         }
     }
 }
