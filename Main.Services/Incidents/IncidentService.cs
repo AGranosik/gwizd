@@ -51,11 +51,25 @@ namespace Main.Services.Incidents
             if (incidentCategory == null) // no idea what it may be. let user decide
                 return null;
 
+            var incidentCategories = new List<string>
+            {
+                incidentCategory
+            };
+
+            incidentCategories.AddRange(_wildWordlKeys.Where(ww => ww != incidentCategory));
+
             var knownSpecies = _knownSpecies.FirstOrDefault(ks => analisys.Tags.Any(t => t.Name == ks));
             if (knownSpecies == null)
-                return new KnownSpieciesDto(incidentCategory, analisys.Tags.Select(t => t.Name).ToList());
+                return new KnownSpieciesDto(incidentCategories, analisys.Tags.Select(t => t.Name).ToList());
 
-            return new KnownSpieciesDto(incidentCategory, new List<string> { knownSpecies });
+            var sss = new List<string>()
+            {
+                knownSpecies
+            };
+
+            sss.AddRange(_knownSpecies.Where(ks => ks != knownSpecies));
+
+            return new KnownSpieciesDto(incidentCategories, sss);
 
 
         }

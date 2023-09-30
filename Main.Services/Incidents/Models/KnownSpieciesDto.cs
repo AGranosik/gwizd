@@ -14,13 +14,13 @@ namespace Main.Services.Incidents.Models
             "snake", "bat", "reptile", "boar"
         };
 
-        public KnownSpieciesDto(string spieciesCategory, List<string> concreteSpecies)
+        public KnownSpieciesDto(List<string> spieciesCategory, List<string> concreteSpecies)
         {
             SpieciesCategory = spieciesCategory;
             ConcreteSpecies = concreteSpecies;
             SetIncidentType();
         }
-        public string SpieciesCategory { get; init; }
+        public List<string> SpieciesCategory { get; init; }
         public List<string> ConcreteSpecies { get; init; }
         public IncidentTypeAnalisisDto IncidentType { get; private set; }
 

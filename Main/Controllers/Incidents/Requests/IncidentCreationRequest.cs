@@ -2,6 +2,6 @@
 {
     public class IncidentCreationRequest
     {
-        public IFormFile Image { get; set; }
+        public string Image { get; set; }
     }
 }

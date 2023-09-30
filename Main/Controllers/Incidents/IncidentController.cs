@@ -32,9 +32,9 @@ namespace Main.Controllers.Incidents
         }
 
         [HttpPost]
-        public async Task<IActionResult> AnalizePhotoForIncident([FromForm] IncidentCreationRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> AnalizePhotoForIncident([FromBody] IncidentCreationRequest request, CancellationToken cancellationToken)
         {
-            return Ok(await _service.AnalizeIncidentAsync(request.Image.OpenReadStream(), cancellationToken));
+            return Ok(await _service.AnalizeIncidentAsync(new MemoryStream(Convert.FromBase64String(request.Image)), cancellationToken));
         }
 
         [HttpPost("add")]
