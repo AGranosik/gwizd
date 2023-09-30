@@ -27,7 +27,7 @@ namespace Main.Services.Incidents.Models
         private void SetIncidentType()
         {
             EIncidentLevel? level = null;
-            var dangerType = _dangerSpecies.FirstOrDefault(ds => ConcreteSpecies.Contains(ds.ToLower()));
+            var dangerType = _dangerSpecies.FirstOrDefault(ds => ConcreteSpecies.Take(1).Contains(ds.ToLower()));
             if (dangerType != null)
             {
                 IncidentType = new IncidentTypeAnalisisDto
@@ -38,7 +38,7 @@ namespace Main.Services.Incidents.Models
                 return;
             }
 
-            var warningType = _warningSpecies.FirstOrDefault(ws => ConcreteSpecies.Contains(ws));
+            var warningType = _warningSpecies.FirstOrDefault(ws => ConcreteSpecies.Take(1).Contains(ws));
             if(warningType != null)
             {
                 IncidentType = new IncidentTypeAnalisisDto
