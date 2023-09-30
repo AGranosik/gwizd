@@ -21,7 +21,7 @@ namespace Main.Infrastructure.ComputerVisionAgents
             return client;
         }
 
-        public async Task<List<string>> AnalyzeImageUrl(Stream iamgeStream)
+        public async Task<ImageAnalysis> AnalyzeImageUrl(Stream iamgeStream)
         {
             Console.WriteLine("----------------------------------------------------------");
             Console.WriteLine("ANALYZE IMAGE - URL");
@@ -36,9 +36,7 @@ namespace Main.Infrastructure.ComputerVisionAgents
                 VisualFeatureTypes.Tags
             };
             // Analyze the URL image 
-            ImageAnalysis results = await client.AnalyzeImageInStreamAsync(iamgeStream, visualFeatures: features);
-
-            return results.Tags.Select(tag => $"{tag.Name} {tag.Confidence}").ToList();
+            return await client.AnalyzeImageInStreamAsync(iamgeStream, visualFeatures: features);
         }
     }
 }
