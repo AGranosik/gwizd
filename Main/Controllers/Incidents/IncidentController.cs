@@ -48,6 +48,7 @@ namespace Main.Controllers.Incidents
                     IncidentType = request.IncidentType,
                     SpieciesCategory = request.SpieciesCategory,
                     Description = request.Description,
+                    Image = request.Image,
                     X = request.X,
                     Y = request.Y,
                     CreationDate = request.CreationDate
