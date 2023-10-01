@@ -17,7 +17,16 @@ namespace Main.Infrastructure.DbContext
         public async Task<List<Incident>> GetIncidents()
         {
             var query = _containers.IncidentContainer.GetItemLinqQueryable<Incident>();
-            var iterator = query.ToFeedIterator();
+            var iterator = query.Select(c => new Incident
+            {
+                X = c.X, Y = c.Y,
+                ConcreteSpecies = c.ConcreteSpecies,
+                CreationDate = c.CreationDate,
+                Description = c.Description,
+                id = c.id,
+                IncidentType = c.IncidentType,
+                SpieciesCategory = c.SpieciesCategory
+            }).ToFeedIterator();
             var results = await iterator.ReadNextAsync();
             return results.Select(c => c).ToList();
         }
