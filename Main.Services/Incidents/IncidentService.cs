@@ -15,11 +15,24 @@ namespace Main.Services.Incidents
             "vegetable", "plant", "fruit", "wildlife", "cat"
         };
 
+        private readonly List<string> _wildWordlKeysPL = new List<string>()
+        {
+            "pies", "ssak", "zwierze", "gad", "wąż",
+            "warzywo", "roślina", "owoc", "dzika przyroda", "kot"
+        };
+
         private readonly List<string> _knownSpecies = new List<string>()
         {
             "collie", "golden retriever", "retriever", "dog", "cat",
             "moose", "deer", "common pipistrelle", "bat", "boar", "crow", "raven", "snake", "serpent", "reptile",
             "eurasian red squirrel", "squirrel", "bear", "dandelion", "bramble", "poppy", "African daisy", "cabbage"
+        };
+
+        private readonly List<string> _knownSpeciesPL = new List<string>()
+        {
+            "collie", "golden retriever", "retriever", "pies", "kot",
+            "łoś", "jeleń", "świergotek pospolity", "nietoperz", "dzik", "wrona", "kruk", "wąż", "serpent", "gad",
+            "ruda wiewiórka eurazjatycka", "wiewiórka", "niedźwiedź", "mniszek lekarski", "jeżyna", "poppy", "Afrykańska stokrotka", "kapusta"
         };
         private readonly IncidentDbContext _incidentDbContext;
 
@@ -46,28 +59,28 @@ namespace Main.Services.Incidents
         public async Task<KnownSpieciesDto> AnalizeIncidentAsync(Stream image, CancellationToken cancellationToken)
         {
             var analisys =  await _cognitiveAgent.AnalyzeImageUrl(image);
-            var incidentCategory = _wildWordlKeys.FirstOrDefault(ww => analisys.Tags.Any(t => t.Name == ww));
+            var incidentCategoryEng = _wildWordlKeys.FirstOrDefault(ww => analisys.Tags.Any(t => t.Name == ww));
 
-            if (incidentCategory == null) // no idea what it may be. let user decide
+            if (incidentCategoryEng == null) // no idea what it may be. let user decide
                 return null;
 
             var incidentCategories = new List<string>
             {
-                incidentCategory
+               _wildWordlKeysPL[_wildWordlKeys.IndexOf(incidentCategoryEng)]
             };
 
-            incidentCategories.AddRange(_wildWordlKeys.Where(ww => ww != incidentCategory));
+            incidentCategories.AddRange(_wildWordlKeys.Where(ww => _wildWordlKeys.IndexOf(ww) != _wildWordlKeys.IndexOf(incidentCategoryEng)));
 
-            var knownSpecies = _knownSpecies.FirstOrDefault(ks => analisys.Tags.Any(t => t.Name == ks));
-            if (knownSpecies == null)
+            var knownSpeciesEng = _knownSpecies.FirstOrDefault(ks => analisys.Tags.Any(t => t.Name == ks));
+            if (knownSpeciesEng == null)
                 return new KnownSpieciesDto(incidentCategories, analisys.Tags.Select(t => t.Name).ToList());
 
             var sss = new List<string>()
             {
-                knownSpecies
+                _knownSpeciesPL[_knownSpecies.IndexOf(knownSpeciesEng)]   
             };
 
-            sss.AddRange(_knownSpecies.Where(ks => ks != knownSpecies));
+            sss.AddRange(_knownSpecies.Where(ks => _knownSpecies.IndexOf(ks) != _knownSpecies.IndexOf(knownSpeciesEng)));
 
             return new KnownSpieciesDto(incidentCategories, sss);
 
