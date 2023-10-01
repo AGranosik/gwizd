@@ -12,27 +12,27 @@ namespace Main.Services.Incidents
         private readonly List<string> _wildWordlKeys = new List<string>()
         {
             "dog", "mammal", "animal", "reptile", "snake",
-            "vegetable", "plant", "fruit", "wildlife", "cat"
+            "vegetable", "plant", "fruit", "wildlife", "cat", "bird"
         };
 
         private readonly List<string> _wildWordlKeysPL = new List<string>()
         {
             "pies", "ssak", "zwierze", "gad", "wąż",
-            "warzywo", "roślina", "owoc", "dzika przyroda", "kot"
+            "warzywo", "roślina", "owoc", "dzika przyroda", "kot", "ptak"
         };
 
         private readonly List<string> _knownSpecies = new List<string>()
         {
             "collie", "golden retriever", "retriever", "dog", "cat",
             "moose", "deer", "common pipistrelle", "bat", "boar", "crow", "raven", "snake", "serpent", "reptile",
-            "eurasian red squirrel", "squirrel", "bear", "dandelion", "bramble", "poppy", "African daisy", "cabbage"
+            "eurasian red squirrel", "squirrel", "bear", "dandelion", "bramble", "poppy", "African daisy", "cabbage", "eagle"
         };
 
         private readonly List<string> _knownSpeciesPL = new List<string>()
         {
             "collie", "golden retriever", "retriever", "pies", "kot",
             "łoś", "jeleń", "świergotek pospolity", "nietoperz", "dzik", "wrona", "kruk", "wąż", "serpent", "gad",
-            "ruda wiewiórka eurazjatycka", "wiewiórka", "niedźwiedź", "mniszek lekarski", "jeżyna", "poppy", "Afrykańska stokrotka", "kapusta"
+            "ruda wiewiórka eurazjatycka", "wiewiórka", "niedźwiedź", "mniszek lekarski", "jeżyna", "poppy", "Afrykańska stokrotka", "kapusta", "orzeł"
         };
         private readonly IncidentDbContext _incidentDbContext;
 
