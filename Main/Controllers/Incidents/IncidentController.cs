@@ -20,7 +20,7 @@ namespace Main.Controllers.Incidents
         public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetAll();
-            return Ok(result.Where(r => r.CreationDate <= DateTime.Now.AddHours(-2))
+            return Ok(result
                 .OrderByDescending(r => r.CreationDate)
                 .ToList());
         }
