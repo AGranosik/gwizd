@@ -69,7 +69,7 @@ namespace Main.Services.Incidents
                _wildWordlKeysPL[_wildWordlKeys.IndexOf(incidentCategoryEng)]
             };
 
-            incidentCategories.AddRange(_wildWordlKeysPL.Where(ww => _wildWordlKeys.IndexOf(ww) != _wildWordlKeys.IndexOf(incidentCategoryEng)));
+            incidentCategories.AddRange(_wildWordlKeysPL.Where(ww => _wildWordlKeysPL.IndexOf(ww) != _wildWordlKeys.IndexOf(incidentCategoryEng)));
 
             var knownSpeciesEng = _knownSpecies.FirstOrDefault(ks => analisys.Tags.Any(t => t.Name == ks));
             if (knownSpeciesEng == null)
@@ -80,7 +80,7 @@ namespace Main.Services.Incidents
                 _knownSpeciesPL[_knownSpecies.IndexOf(knownSpeciesEng)]   
             };
 
-            sss.AddRange(_knownSpeciesPL.Where(ks => _knownSpecies.IndexOf(ks) != _knownSpecies.IndexOf(knownSpeciesEng)));
+            sss.AddRange(_knownSpeciesPL.Where(ks => _knownSpeciesPL.IndexOf(ks) != _knownSpecies.IndexOf(knownSpeciesEng)));
 
             return new KnownSpieciesDto(incidentCategories, sss);
 
