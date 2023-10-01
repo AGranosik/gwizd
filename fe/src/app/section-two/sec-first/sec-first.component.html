@@ -1,0 +1,13 @@
+<div class="button-cont">
+  <div class="button-cont__content">
+    <button mat-raised-button routerLink="/2/1">2-2</button>
+  </div>
+</div>
+<div
+  class="section-layout"
+  [@routeAnimations]="
+    o && o.activatedRouteData && o.activatedRouteData['animation']
+  "
+>
+  <router-outlet #o="outlet"></router-outlet>
+</div>

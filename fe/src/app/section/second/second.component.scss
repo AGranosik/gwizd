@@ -1,0 +1,10 @@
+@import "mixins";
+
+:host {
+  @include host(lightgreen);
+}
+
+.txt-col {
+  height: 120rem;
+  width: 20rem;
+}

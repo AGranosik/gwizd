@@ -1,0 +1,35 @@
+<ng-container *ngIf="(auth.isAuthenticated$ | async) === true">
+  <button
+    *ngFor="let option of navOptions"
+    color="primary"
+    class="nav-button"
+    mat-mini-fab
+    [routerLink]="option.route"
+    aria-label="Example icon button with a home icon"
+  >
+    <mat-icon>{{ option.icon }}</mat-icon>
+  </button>
+</ng-container>
+<button
+  *ngIf="!(auth.isAuthenticated$ | async)"
+  color="primary"
+  class="nav-button"
+  mat-mini-fab
+  (click)="login()"
+  aria-label="Example icon button with a home icon"
+>
+  <mat-icon>account_circle</mat-icon>
+</button>
+<span *ngIf="(auth.isAuthenticated$ | async) === true && !data.isMobile"
+  >Witaj {{ (auth.user$ | async)?.name }}
+</span>
+<button
+  *ngIf="(auth.isAuthenticated$ | async) === true"
+  color="primary"
+  class="nav-button"
+  mat-mini-fab
+  (click)="logout()"
+  aria-label="Example icon button with a home icon"
+>
+  <mat-icon>exit_to_app</mat-icon>
+</button>

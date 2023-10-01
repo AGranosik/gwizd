@@ -1,0 +1,25 @@
+<div class="wrapper" (window:resize)="onResize($event)">
+  <webcam
+    class="webcam"
+    [trigger]="trigger"
+    (imageCapture)="onImageCapture($event)"
+    (initError)="handleInitError($event)"
+  ></webcam>
+  <div class="btn-container">
+    <input
+      class="hidden-file-upload"
+      type="file"
+      accept="image/*"
+      #file
+      (change)="importFile($event)"
+    />
+
+    <button color="primary" mat-mini-fab (click)="file.click()">
+      <mat-icon>file_open</mat-icon>
+    </button>
+    <button color="primary" mat-mini-fab (click)="trigger.next()">
+      <mat-icon>camera_alt</mat-icon>
+    </button>
+  </div>
+</div>
+<!-- <img *ngIf="imageTaken" [src]="imageTaken" alt="Place image title" /> -->

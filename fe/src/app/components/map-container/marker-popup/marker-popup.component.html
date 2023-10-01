@@ -1,0 +1,44 @@
+<h1 mat-dialog-title class="mat-mdc-dialog-title--{{ type }}">
+  W okolicy:
+
+  <button
+    color="secondary"
+    class="title-btn title-btn--{{ type }}"
+    mat-mini-fab
+    [disabled]="true"
+    aria-label="Example icon button with a home icon"
+  >
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+</h1>
+<div mat-dialog-content>
+  <span>
+    <strong>{{ concreteSpecies?.[0] }} </strong> został(a) zauważony w tej
+    okolicy o
+    <strong>{{ creationDate | date : "dd-MM-yyyy HH:mm" }}</strong></span
+  >
+  <div class="mt-1 description" *ngIf="description">
+    <span>{{ description }}</span>
+  </div>
+  <div class="image-container">
+    <img
+      style="display: block; max-width: 100%; height: auto; max-height: 50vh"
+      id="base64image"
+      src="data:image/jpeg;base64, {{ image }}"
+    />
+  </div>
+</div>
+<div class="actions" mat-dialog-actions>
+  <button color="primary" mat-button mat-dialog-close cdkFocusInitial>
+    Ok
+  </button>
+
+  <button
+    mat-icon-button
+    class="actions--info"
+    color="primary"
+    aria-label="Example icon button with a home icon"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,33 @@
+@import "mixins";
+
+:host {
+  @include host(transparent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-one {
+  max-width: 40rem;
+  min-width: 30vw;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.control {
+  width: 100%;
+
+  &--text {
+    textarea {
+      min-height: 10rem;
+    }
+  }
+
+  &--btn {
+    width: 50%;
+    margin: 0 auto;
+    color: white !important;
+  }
+}

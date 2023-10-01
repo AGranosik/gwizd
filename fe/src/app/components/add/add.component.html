@@ -1,0 +1,71 @@
+<card
+  class="card-one"
+  [content]="true"
+  header="Dodaj punkt"
+  icon="add"
+  [formGroup]="form"
+  [column]="true"
+>
+  <mat-form-field class="control">
+    <mat-label>Kategoria</mat-label>
+
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      formControlName="concreteSpecies"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of concreteSpecies" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="control">
+    <mat-label>Gatunek</mat-label>
+
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      formControlName="spieciesCategory"
+      [matAutocomplete]="auto1"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
+      <mat-option *ngFor="let option of spieciesCategory" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="control">
+    <mat-label>Poziom</mat-label>
+    <mat-select formControlName="incidentType">
+      <mat-option *ngFor="let option of incidentTypes" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="control control--text">
+    <mat-label>Opis</mat-label>
+    <textarea
+      matInput
+      placeholder="Napisz parę słów o swoim znalezisku..."
+      formControlName="description"
+    ></textarea>
+  </mat-form-field>
+
+  <button
+    class="control--btn"
+    mat-raised-button
+    color="primary"
+    (click)="submit()"
+  >
+    Dodaj
+  </button>
+</card>

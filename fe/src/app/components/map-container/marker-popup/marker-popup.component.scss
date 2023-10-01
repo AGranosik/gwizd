@@ -1,0 +1,74 @@
+:host {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-dialog-content {
+  height: 100%;
+}
+
+.mat-mdc-dialog-title {
+  color: white !important;
+  text-align: center;
+
+  &--0 {
+    background-color: #8bc34a;
+  }
+
+  &--1 {
+    background-color: #ffff66;
+  }
+
+  &--2 {
+    background-color: #f44336;
+  }
+}
+
+.title-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white !important;
+
+  &--0 {
+    color: #8bc34a !important;
+  }
+
+  &--1 {
+    color: #ffff66 !important;
+  }
+
+  &--2 {
+    color: #f44336 !important;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &--info {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: purple !important;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}

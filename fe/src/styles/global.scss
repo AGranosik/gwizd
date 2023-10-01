@@ -1,0 +1,70 @@
+@import "./section-layout";
+@import "./material";
+@import "./variables.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("../assets/background.jpg");
+  background-size: cover;
+  background-color: #cccccc;
+}
+
+@include layout-classes;
+
+.marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #c30b82;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+}
+// to draw white circle
+.marker-pin::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  margin: 3px 0 0 3px;
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+}
+
+// to align icon
+.custom-div-icon i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+}
+
+@keyframes change-color {
+  25% {
+    opacity: 0.1;
+  }
+  50% {
+    color: 0.7;
+  }
+  75% {
+    color: 1;
+  }
+}
+
+.blinking {
+  animation-name: change-color;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 6;
+}

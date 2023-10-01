@@ -1,0 +1,13 @@
+@import "mixins";
+@import "common";
+:host {
+  @include host(cyan);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  flex: 1;
+  padding: 1rem;
+}

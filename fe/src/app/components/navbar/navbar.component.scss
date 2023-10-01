@@ -1,0 +1,19 @@
+$color-bg: #383838;
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 4rem;
+  //   background-color: #383838;
+}
+
+.nav-button {
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+}
+
+.mat-icon {
+  color: white !important;
+}
